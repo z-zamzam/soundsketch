@@ -44,14 +44,14 @@
   let scheduled = [];
 
   // ── Model initialisation ──────────────────────────────────────────────────
-  function initModel() {
-    if (typeof mm === "undefined" || !mm.MusicVAE) {
+function initModel() {
+    if (typeof music_vae === "undefined" || !music_vae.MusicVAE) {
       modelStatus.textContent = "model: unavailable (using server fallback)";
       return;
     }
     const checkpoint =
       "https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/mel_2bar_small";
-    musicVAE = new mm.MusicVAE(checkpoint);
+    musicVAE = new music_vae.MusicVAE(checkpoint);
     musicVAE
       .initialize()
       .then(() => {
