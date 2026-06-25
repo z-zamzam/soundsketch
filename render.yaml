@@ -1,0 +1,12 @@
+# Render deployment configuration for SoundSketch.
+# Render reads this file to build and run the app automatically.
+services:
+  - type: web
+    name: soundsketch
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"

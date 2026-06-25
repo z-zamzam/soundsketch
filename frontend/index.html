@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoundSketch — Mood-Based Melody Generator</title>
+
+  <!-- Magenta.js + Tone.js loaded from CDN. Magenta.js runs the pre-trained
+       MusicVAE model in the browser; Tone.js handles audio playback. -->
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/es6/music_vae.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="site-header">
+    <div class="wordmark">
+      <span class="wordmark-sound">Sound</span><span class="wordmark-sketch">Sketch</span>
+    </div>
+    <p class="tagline">Describe a mood. Hear a melody.</p>
+  </header>
+
+  <main class="stage">
+    <section class="composer" aria-label="Melody composer">
+      <label for="prompt" class="prompt-label">What should it feel like?</label>
+      <div class="prompt-row">
+        <input
+          id="prompt"
+          type="text"
+          maxlength="200"
+          autocomplete="off"
+          placeholder="dreamy and romantic"
+          aria-describedby="charcount" />
+        <button id="generate" class="btn-generate">
+          <span class="btn-label">Generate</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="prompt-meta">
+        <span id="charcount">0 / 200</span>
+        <span id="model-status" class="model-status">model: loading…</span>
+      </div>
+
+      <div class="examples" id="examples" aria-label="Example prompts"></div>
+
+      <p id="error" class="error" role="alert" hidden></p>
+    </section>
+
+    <section class="result" id="result" hidden aria-live="polite">
+      <div class="result-params" id="result-params"></div>
+
+      <div class="transport">
+        <button id="play" class="btn-transport" disabled>Play</button>
+        <button id="stop" class="btn-transport" disabled>Stop</button>
+        <button id="regenerate" class="btn-transport">Regenerate</button>
+        <a id="download" class="btn-transport btn-download" href="#">Download MIDI</a>
+      </div>
+
+      <div class="visualizer" id="visualizer" aria-hidden="true"></div>
+      <p class="source-note" id="source-note"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>SoundSketch · IU Portfolio Project · Phase 3 final</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

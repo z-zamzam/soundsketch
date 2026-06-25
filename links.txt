@@ -1,0 +1,13 @@
+SoundSketch - Project Links
+===========================
+
+Public GitHub repository:
+[INSERT YOUR GITHUB REPO URL HERE]
+Example: https://github.com/your-username/soundsketch
+
+Live application (Render):
+[INSERT YOUR RENDER APP URL HERE]
+Example: https://soundsketch.onrender.com
+
+Login data:
+None required - the application is open and needs no account.
